@@ -1,0 +1,11 @@
+{% include 'base.html' %} {% block content%} {% load static %}
+<link rel="stylesheet" href="{% static 'css/one-style.css' %}?{% now 'U' %}" />
+
+<div class="container">
+  <div class="chart">
+    <canvas id="iot-chart" width="800" height="400"></canvas>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="{% static 'js/two.js' %}"></script>
+{% endblock %}

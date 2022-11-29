@@ -1,0 +1,15 @@
+{% include 'base.html' %} {% block content%} {% load static %}
+<link rel="stylesheet" href="{% static 'css/one-style.css' %}?{% now 'U' %}" />
+<div class="container">
+  <p id="one">{{ one_text }}</p>
+</div>
+
+<script>
+  var socket = new WebSocket("ws://localhost:8000/ws/any_url/");
+  socket.onmessage = function (event) {
+    var data = JSON.parse(event.data);
+    console.log(data);
+    document.querySelector("#one").innerText = data.message;
+  };
+</script>
+{% endblock %}
